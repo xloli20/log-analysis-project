@@ -25,8 +25,7 @@ class Questions:
             """)
         result = self.cursor.fetchall()
         for e, e2 in result:
-            print
-            '.', e, '---', e2, 'views'
+            print '.', e, '---', e2, 'views'
 
     def popularAuthors(self):
 
@@ -41,8 +40,7 @@ class Questions:
             """)
         result = self.cursor.fetchall()
         for e, e2 in result:
-            print
-            '.', e, '---', e2, 'views'
+            print '.', e, '---', e2, 'views'
 
     def error(self):
 
@@ -60,8 +58,7 @@ class Questions:
            """)
         result = self.cursor.fetchall()
         for e, e2 in result:
-            print
-            '.', e, '---', e2, '% errors'
+            print '.', e, '---', e2, '% errors'
 
     def destroyConnection(self):
 
