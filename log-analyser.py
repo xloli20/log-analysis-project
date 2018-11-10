@@ -3,7 +3,6 @@ import psycopg2
 
 
 class Questions:
-
     dbname = "news"
 
     def __init__(self):
@@ -26,7 +25,8 @@ class Questions:
             """)
         result = self.cursor.fetchall()
         for e, e2 in result:
-            print '.', e, '---', e2, 'views'
+            print
+            '.', e, '---', e2, 'views'
 
     def popularAuthors(self):
 
@@ -41,7 +41,8 @@ class Questions:
             """)
         result = self.cursor.fetchall()
         for e, e2 in result:
-            print '.', e, '---', e2, 'views'
+            print
+            '.', e, '---', e2, 'views'
 
     def error(self):
 
@@ -59,18 +60,23 @@ class Questions:
            """)
         result = self.cursor.fetchall()
         for e, e2 in result:
-            print '.', e, '---', e2, '% errors'
+            print
+            '.', e, '---', e2, '% errors'
 
     def destroyConnection(self):
 
         self.db.close()
 
+
 if __name__ == '__main__':
     Questions = Questions()
     Questions.popularArticle()
-    print ''
+    print
+    ''
     Questions.popularAuthors()
-    print ''
+    print
+    ''
     Questions.error()
-    print ''
+    print
+    ''
     Questions.destroyConnection()
