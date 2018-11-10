@@ -4,11 +4,9 @@ import psycopg2
 
 class Questions:
 
-
     dbname = "news"
 
     def __init__(self):
-
 
         try:
             self.db = psycopg2.connect(database=self.dbname)
@@ -17,7 +15,6 @@ class Questions:
             return 'can not connect to the database'
 
     def popularArticle(self):
-
 
         print('What are the most popular three articles of all time?')
         self.cursor.execute("""
@@ -33,7 +30,6 @@ class Questions:
 
     def popularAuthors(self):
 
-
         print('Who are the most popular article authors of all time?')
         self.cursor.execute("""
         select authors.name, count(*) as views
@@ -47,9 +43,7 @@ class Questions:
         for e, e2 in result:
             print '.', e, '---', e2, 'views'
 
-
     def error(self):
-
 
         print('On which days did more than 1% of requests lead to errors?')
         self.cursor.execute("""
@@ -68,7 +62,6 @@ class Questions:
             print '.', e, '---', e2, '% errors'
 
     def destroyConnection(self):
-
 
         self.db.close()
 
