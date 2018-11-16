@@ -18,7 +18,7 @@ class Questions:
         print('What are the most popular three articles of all time?')
         self.cursor.execute("""
         select title, count(*) as views
-            from articles inner join log
+            from articles join log
             on log.path like concat('/article/', articles.slug, '%')
             group by log.path, articles.title
             order by views desc limit 3;
@@ -32,8 +32,8 @@ class Questions:
         print('Who are the most popular article authors of all time?')
         self.cursor.execute("""
         select authors.name, count(*) as views
-            from articles inner join authors
-            on articles.author = authors.id inner join log
+            from articles join authors
+            on articles.author = authors.id join log
             on log.path like concat('/article/', articles.slug, '%')
             group by authors.name
             order by views desc;
